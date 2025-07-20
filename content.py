@@ -4,7 +4,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import StandardScaler
 from scipy.sparse import hstack
 
-
 class content_rec:
     def __init__(self):
         self.df = pd.read_csv("metadata.csv")
