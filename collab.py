@@ -9,7 +9,7 @@ class collab_rec:
 
         # Hyperparameters
         self.lr = 0.01
-        self.reg = 0.1
+        self.reg = 0.001
         self.k = 10
         self.U = np.random.normal(scale = 1/self.k, size = (users,self.k))
         self.V = np.random.normal(scale = 1/self.k, size = (items,self.k))
@@ -28,19 +28,34 @@ class collab_rec:
         prev_loss = float('inf')
         epoch = 0
         while epoch < max_epochs:
-            idx = np.random.choice(len(self.Z))
-            i, j = self.Z[idx]
+            indices = np.random.permutation(len(self.Z))
 
-            error = self.R[i,j] - np.dot(self.U[i], self.V[j])
+            for idx in indices:
+                i, j = self.Z[idx]
 
-            self.U[i] -= self.lr * (-error * self.V[j] + self.reg * self.U[i])
-            self.V[j] -= self.lr * (-error * self.U[i] + self.reg * self.V[j])
+                error = self.R[i,j] - np.dot(self.U[i], self.V[j])
 
-            loss = np.square(error).mean()
-            print(f"Epoch: {epoch}, Error: {error}, Loss: {loss}")
+                u_copy = self.U[i].copy()
+
+                self.U[i] -= self.lr * (-error * self.V[j] + self.reg * self.U[i])
+                self.V[j] -= self.lr * (-error * u_copy + self.reg * self.V[j])
+
+            
+            square_error_sum = 0
+            for i, j in self.Z:
+                prediction = np.dot(self.U[i], self.V[j])
+                square_error_sum += (self.R[i, j] - prediction) ** 2
+            
+            mse = 0.5 * square_error_sum / len(self.Z)
+            reg_term = 0.5 * self.reg * (np.sum(self.U**2) + np.sum(self.V**2))
+            loss = mse + reg_term
+
+            print(f"Epoch: {epoch}, MSE: {mse:.4f}, Loss: {loss:.4f}")
+
             if abs(prev_loss - loss) < threshold:
                 print("Converged")
                 break
+
             prev_loss = loss
             epoch += 1
 
