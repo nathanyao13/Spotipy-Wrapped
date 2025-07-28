@@ -3,6 +3,7 @@ import pandas as pd
 
 class collab_rec:
     def __init__(self):
+        self.songs_df = pd.read_csv("metadata.csv")
         self.R = pd.read_csv("user_item.csv", index_col = 0)
         self.R = self.R.values
         users, items = self.R.shape
@@ -60,7 +61,11 @@ class collab_rec:
             epoch += 1
 
     def user_recommendations(self, user):
-        pass
+        scores = self.U[user] @ self.V.T
+        liked_items = np.where(self.R[user] == 1)[0]
+        scores[liked_items] = -np.inf
+        top_items = np.argsort(scores)[::-1][:10]
+        return self.songs_df.iloc[top_items][['name', 'artists', 'album', 'release_date']]
 
 
 
