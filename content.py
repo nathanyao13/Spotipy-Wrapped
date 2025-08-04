@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import StandardScaler
 from scipy.sparse import hstack
@@ -25,8 +25,8 @@ class content_rec:
         scaler = StandardScaler()
         scaled_variables_matrix = scaler.fit_transform(self.numerical_metadata)
 
-        tfid = TfidfVectorizer()
-        artist_vector = tfid.fit_transform(self.df['artists'])
+        count_vectorizer = CountVectorizer()
+        artist_vector = count_vectorizer.fit_transform(self.df['artists'])
 
         item_matrix = hstack([scaled_variables_matrix,artist_vector]).tocsr()
         return item_matrix
