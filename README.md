@@ -8,7 +8,6 @@ My music taste has evolved over the years, from Maroon 5 to Playboi Carti to Mac
 The logic behind my content-based recommendation system was to compute similarity scores between the submitted liked songs and the songs in the dataset. <br>
 
 <b> Data Preperation </b> <br>
-<br>
 Before that, similarity scores can only be calculated with numerical values, so I changed the artists feature to numerical using the Count Vectorizer. <br>
 <br>
 The Count Vectorizer vectorizes the artists based on how popular they are. I chose to use this vectorizer because if two songs share the same artist, they should be considered more similar. Other choices such as the TF-IDF Vectorizer penalizes popular artists and downweights them. <br>
