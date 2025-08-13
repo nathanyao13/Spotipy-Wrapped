@@ -1,4 +1,4 @@
-# Music Recommender System: Spotipy Wrapped
+# Music Recommender Systems: Spotipy Wrapped
 
 
 
