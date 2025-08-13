@@ -51,12 +51,10 @@ After filtering out the songs the user has already liked, the algorithm sorts th
 ## Further Exploration
 
 ### Hybrid Recommender Systems
-
-- 
+Both collaborative filtering and content‑based filtering have trade‑offs. Collaborative filtering works well without explicit metadata but struggles with new items or users (cold start). In contrast, content‑based filtering can make recommendations out of the box if metadata is available, but may miss patterns in collective behavior. Industry systems often combine methods—for example, blending scores from collaborative filtering and content‑based filtering or dynamically switching strategies depending on data availability.
 
 ### Dataset Limitations
-
-- 
+For any Machine Learning or AI model, data quality is critical. Unfortunately, Spotify has removed many API endpoints that previously provided rich song metadata and user interaction data. As a result, this project relied on an outdated Spotify dataset and a sparse user-item matrix generated with a Python script. While these resources allowed model implementation and testing, they did not fully capture the true performance of the recommendation system.
 
 ---
 
