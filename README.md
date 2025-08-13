@@ -1,4 +1,4 @@
-![image](https://i.imgur.com/ppcTZNT.png)
+<img src="https://i.imgur.com/ppcTZNT.png" alt="Description of your image" width="200">
 
 
 Sources:
