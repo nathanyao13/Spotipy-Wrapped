@@ -40,6 +40,10 @@ The algorithm used learns the rank of the two matrices that minimizes the mean s
 
 <img src="https://i.imgur.com/ppcTZNT.png" width="500">
 
+<b>Recommending</b>
+Given a user index, the algorithm grabs the user's row from the user matrix and multiplies it with the transpose of the items matrix to predict scores for all songs. <br>
+
+After filtering out the songs the user has already liked, the algorithm sorts the remaining songs by their predicted scores and returns the top 10 highest-scoring recommendations.
 
 ---
 
