@@ -36,7 +36,8 @@ The intuition behind this technique is to decompose a sparse matrix, such as use
 
 The algorithm used learns the rank of the two matrices that minimizes the mean squared error between the sparse user matrix and the two low-dimension matrices. <br>
 
-<b>Learning Algorithm</b>
+<b>Learning Algorithm</b> <br>
+
 <img src="https://i.imgur.com/ppcTZNT.png" width="500">
 
 
