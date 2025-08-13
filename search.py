@@ -1,6 +1,7 @@
+# Class for searching songs in the dataset
+
 import pandas as pd
 
-# Class for searching songs in the dataset
 class search:    
     def __init__(self):
         self.df = pd.read_csv("metadata.csv")
