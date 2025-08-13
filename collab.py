@@ -31,6 +31,7 @@ class collab_rec:
         while epoch < max_epochs:
             indices = np.random.permutation(len(self.Z))
 
+            # stochastic gradient descent
             for idx in indices:
                 i, j = self.Z[idx]
 
@@ -42,17 +43,20 @@ class collab_rec:
                 self.V[j] -= self.lr * (-error * u_copy + self.reg * self.V[j])
 
             
+            # calculate error from dot product between columns and the sparse matrix
             square_error_sum = 0
             for i, j in self.Z:
                 prediction = np.dot(self.U[i], self.V[j])
                 square_error_sum += (self.R[i, j] - prediction) ** 2
             
+            # update mse, regularization term, and loss
             mse = 0.5 * square_error_sum / len(self.Z)
             reg_term = 0.5 * self.reg * (np.sum(self.U**2) + np.sum(self.V**2))
             loss = mse + reg_term
 
             print(f"Epoch: {epoch}, MSE: {mse:.4f}, Loss: {loss:.4f}")
 
+            # end early due to converging 
             if abs(prev_loss - loss) < threshold:
                 print("Converged")
                 break
@@ -60,14 +64,18 @@ class collab_rec:
             prev_loss = loss
             epoch += 1
 
+
     def user_recommendations(self, user):
+        # vector-matrix multiplication
         scores = self.U[user] @ self.V.T
+
+        # remove liked songs
         liked_items = np.where(self.R[user] == 1)[0]
         scores[liked_items] = -np.inf
+
+        # grab top ten songs
         top_items = np.argsort(scores)[::-1][:10]
         return self.songs_df.iloc[top_items][['name', 'artists', 'album', 'release_date']]
-
-
 
 if __name__ == "__main__":
     collab = collab_rec()
