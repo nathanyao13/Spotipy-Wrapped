@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/ppcTZNT.png" alt="Description of your image" width="200">
+<img src="https://i.imgur.com/ppcTZNT.png" alt="Description of your image" width="500">
 
 
 Sources:
