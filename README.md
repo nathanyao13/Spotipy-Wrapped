@@ -30,6 +30,13 @@ When recommending songs, the recommender system calculates the mean of the simil
 ---
 ## Collaborative-Filtering
 
+The algorithm behind my collaboration-filtering system is a latent-factor method, I learned in school called Matrix Factorization. <br>
+
+The intuition behind this technique is to decompose a sparse matrix, such as user liked songs, into the product of two matrices with one that corresponds to users and another to items. <br>
+
+The algorithm used learns the rank of the two matrices that minimizes the mean squared error between the sparse user matrix and the two low-dimension matrices. <br>
+
+<b>Learning Algorithm</b>
 <img src="https://i.imgur.com/ppcTZNT.png" width="500">
 
 
