@@ -1,6 +1,8 @@
 # Music Recommender Systems: Spotipy Wrapped
 
-My music taste has evolved over the years, from Maroon 5 to Playboi Carti to Mac Miller. Along the way, I discovered new songs from social media, friends, and Spotify’s built‑in recommendations like AI DJ and the "Made for You" tab. This project explores how systems like Spotify recommend music, and demonstrates two core approaches from recommender systems: collaborative filtering and content‑based filtering. The goal is to connect the theory to a concrete, working implementation with Spotify data. <br>
+My music taste has evolved over the years, from Maroon 5 to Playboi Carti to Mac Miller. Along the way, I discovered new songs from social media, friends, and Spotify’s built‑in recommendations like AI DJ and the "Made for You" tab. This project explores how systems like Spotify recommend music, and demonstrates two core approaches from recommender systems: collaborative filtering and content‑based filtering. The goal is to connect the theory to a concrete, working implementation with Spotify data. <br> <br>
+
+
 <img src="https://i.imgur.com/HmOCA03.png" width="500">
 
 ---
