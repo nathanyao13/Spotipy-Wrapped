@@ -63,7 +63,8 @@ After filtering out the songs the user has already liked, the algorithm sorts th
 Sources:
 
     Datasets:
-    - https://www.kaggle.com/datasets/rodolfofigueroa/spotify-12m-songs?resource=download
+    - Spotify API data: https://www.kaggle.com/datasets/rodolfofigueroa/spotify-12m-songs?resource=download
+    - User data was generated using a python script located in eda.ipynb
 
 
     Research and Coding:
