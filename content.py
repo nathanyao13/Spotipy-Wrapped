@@ -22,9 +22,12 @@ class content_rec:
         return df
     
     def create_item_matrix(self):
+        # standardize numerical features
         scaler = StandardScaler()
         scaled_variables_matrix = scaler.fit_transform(self.numerical_metadata)
 
+        # vectorize artist names to numerical values
+        # already standardized
         count_vectorizer = CountVectorizer()
         artist_vector = count_vectorizer.fit_transform(self.df['artists'])
 
@@ -38,10 +41,13 @@ class content_rec:
 
         liked_matrix = self.item_matrix[song_indexes]
 
+        # similarity between liked songs and item matrix
         scores = cosine_similarity(liked_matrix, self.item_matrix).mean(axis = 0)
 
+        # sort scores
         scores = sorted(enumerate(scores), key=lambda i: i[1], reverse=True)
 
+        # grab 10 that are not in the user likes list
         recs = []
         i = 0
         while len(recs) < 10:
