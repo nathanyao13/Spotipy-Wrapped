@@ -59,7 +59,7 @@ The model learns these matrices by minimizing the **mean squared error** between
 Both collaborative filtering and content‑based filtering have trade‑offs. Collaborative filtering works well without explicit metadata but struggles with new items or users (cold start). In contrast, content‑based filtering can make recommendations out of the box if metadata is available, but may miss patterns in collective behavior. Industry systems often combine methods—for example, blending scores from collaborative filtering and content‑based filtering or dynamically switching strategies depending on data availability.
 
 ### Dataset Limitations
-For any Machine Learning or AI model, data quality is critical. Unfortunately, Spotify has removed many API endpoints that previously provided rich song metadata and user interaction data. As a result, this project relied on an outdated Spotify dataset and a sparse user-item matrix generated with a Python script. While these resources allowed model implementation and testing, they did not fully capture the true performance of the recommendation system.
+For any Machine Learning or AI model, data quality is critical. Unfortunately, Spotify has removed many API endpoints that previously provided rich song metadata and user interaction data. As a result, this project relied on an outdated Spotify dataset and a sparse user-item matrix generated with a Python script. While these resources allowed model implementation and testing, they did not fully capture the true performance of the recommendation system. With more recent and comprehensive data, the model’s predictive accuracy and recommendation quality would improve substantially, offering a more reliable assessment of its real-world potential.
 
 ---
 
